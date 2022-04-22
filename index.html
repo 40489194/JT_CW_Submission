@@ -1,0 +1,98 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+    <!-- Third Party Font That I found from research, though it suited the quiz so added it in as the defualt font, however other fonts will be used -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Exo:ital,wght@1,600&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!---->
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+    <div id="container">
+        <!--    Start Section     -->
+        <!--Start Button and intro text-->
+        <div id="start">Start Quiz<h1>Welcome To my HTML Quiz! To get Started and Read the Rules, Click the button below!</h1></div>
+
+        <!--    Guide Section    -->
+        <!--    Guide points being made-->
+        <div id="guide">
+            <h2>Quiz Guide</h2>
+            <h4>Rule 1: You get 1 point per correct answer, and can only select an answer once.</h4>
+            <h4>Rule 2: You only have 20 seconds per question, so think fast!</h4>
+            <h4>Rule 3: If you need to restart the quiz, simply hit the restart button.</h4>
+            <h4>Rule 4: If you have trouble seeing the questions, try our shader feature!</h4>
+            <!--    Exit and Continue Buttons    -->
+            <div id="button">
+                <button id="exit">Exit</button>
+                <button id="continue">Continue</button>
+            </div>
+        </div>
+
+        <!--    Quiz Section    -->
+        <div id="quiz">
+            <div id="quiz_header">
+                <h5>HTML and CSS Quiz!</h5>
+                <div id="timer">
+                    <h6>Time Left</h6>
+                    <h6 id="time">00</h6>
+                </div>
+
+                <div id="restart">
+                <a href="index.html"><button>Restart!</button></a>
+                </div>
+                        <!--    Div for the shader as well as the HTML/CSS Background image    -->
+                <div id="shader" onclick="off()">
+                </div>
+                <button id="shader2" onclick="on()">Shader</button> 
+                <img src="https://miro.medium.com/max/792/1*lJ32Bl-lHWmNMUSiSq17gQ.png">
+            </div>
+
+            <!--     Quiz Questions  -->
+
+            <div id="question">
+                <h2 id="questionNo"></h2>
+                <h2 id="questionText"></h2>
+            </div>
+
+            <!--       Quiz Choices   -->
+            <!--    Currently limited to 4 options    -->
+            <div id="optionList">
+                <h4 class="choice_que" id="option1"> </h4>
+                <h4 class="choice_que" id="option2"></h4>
+                <h4 class="choice_que" id="option3"></h4>
+                <h4 class="choice_que" id="option4"></h4>
+            </div>
+
+            <!--  Answers Section-->
+
+            <div id="answersSection">
+
+
+                <div id="total_correct">     </div>
+                <h3 id="next_question">Next</h3>
+            </div>
+        </div>
+        <!--   Result Section  -->
+        <!--    End of quiz, short congratulations message as well as final score    -->
+        <div id="result">
+            <h6>Congratulations! I really hope you enjoyed! If you did, please feel free to message me some feedback on my github page!  If you would like to try again, simply refresh the page! </h6>
+            <h6 id="points">You Got 4 Out Of 10</h6>
+            <!--<button id="startAgain">Start Again</button>-->
+        </div>
+    </div>
+     <!--    Links to JS files, end of HTML    -->
+    <script src="js/questions.js"></script>
+    </body>
+    <script src="js/script.js"></script>    
+
+
+
+    </html>
+
+
+
+

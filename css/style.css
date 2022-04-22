@@ -1,0 +1,403 @@
+/*CSS*/
+
+/*NOTE: Below is the standard setup CSS, the "*" is to default to the third party font as a general rule. This was again inspired by the references linked in the report, as I did enjoy the look of the font and having a nice looking default sped up the process considerably, so I feel it was justified adding it.*/
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: #FFFFCE;
+}
+
+
+#container {
+    height: auto;
+    width: auto;
+}
+/*End of setup CSS*/
+
+/*Start Section, all the CSS needed for the first page*/
+#start {
+    height: 70px;
+    width: 250px;
+        font-family: "Helvetica";
+    text-align: center;
+    padding: 20px 0;
+    background: #698f38;
+    color: #000000;
+    font-size: 23px;
+    font-weight: 700;
+    border-radius: 25px;
+    border: 1px solid #b0c4d8;
+    cursor: pointer;
+    position: absolute;
+    right: 620px;
+    bottom: 130px;
+}
+
+#start h1{
+    font-size: 45px;
+    position: absolute;
+    height: 350px;
+    text-align:center;
+    right: 0px;
+    bottom: 250px
+}
+
+
+#start:hover {
+    background: #558b2f;
+    color: #000000;
+}
+/*End of start section*/
+
+/*Guide Section, all CSS for the guide/tutorial part of the quiz*/
+#guide,
+#quiz {
+    height: auto;
+    width: 580px;
+    padding: 20px;
+    background: #8bc34a;
+    border: 1px solid #b0c4d8;
+    display: none;
+    border-radius: 25px
+}
+
+#guide h2 {
+    font-size: 60px;
+    color: #000000;
+    text-align: center;
+}
+
+#guide h4 {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+#guide #button {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#guide #button button {
+    height: 50px;
+    width: 1000px;
+    font-family: "Helvetica";
+    margin: 10px 25px;
+    border: none;
+    outline: none;
+    color: #000000;
+    background: #698f38;
+    border: 1px solid #b0c4d8;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+#guide #button button:last-child {
+    margin: 10px 0;
+}
+
+#guide #button button:hover {
+    background: #558b2f;
+}
+/*End of Guide Section*/
+
+/*Start of the quiz page, the main portion of the site*/
+#quiz {
+    height: 480px;
+    position: relative;
+    border-radius: 25px;
+}
+
+#quiz #quiz_header {
+    height: 60px;
+    width: 100%;
+    background: #b2ff59;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+}
+
+#quiz #quiz_header h5 {
+    font-size: 28px;
+    margin: 15px;
+    color: #000000;
+}
+
+
+#quiz #quiz_header #timer {
+    height: 50px;
+    width: 193px;
+    background: #698f38;
+    color: #000000;
+    border: 1px solid #b0c4d8;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 190px;
+    bottom: 60px;
+}
+
+#quiz #quiz_header #restart {
+    height: 50px;
+    width: 193px;
+    background: #698f38;
+    color: #e7f1fa;
+    border: 1px solid #FFFFCE;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: px;
+    bottom: 60px;
+}
+
+#quiz #quiz_header img{
+    width: 580px;
+    height: 300px;
+    position: absolute;
+    right: 0px;
+    bottom: -700px
+}
+
+
+
+#quiz #quiz_header #timer h6 {
+    font-size: 22px;
+    display:grid;
+    place-items: center;
+    color: #000000;
+    margin: 0 0px;
+}
+
+#quiz #quiz_header #timer #time {
+    height: 44px;
+    width: 50px;
+    background: #FFFFCE;
+    color: #000000;
+    border: 1px solid #b0c4d8;
+    margin: 2px 0 0 27px;
+}
+
+#quiz #quiz_header #shader2 {
+    height: 50px;
+    width: 195px;
+        font-family: "Helvetica";
+    background: #698f38;
+    color: #000000;
+    border: 1px solid #b0c4d8;
+    font-size: 25px;
+    flex-direction: row;
+    position: absolute;
+    right: -5px;
+    bottom: 60px;
+    text-align: center;
+
+
+}
+
+/*Quiz Questions*/
+#quiz #question {
+    position: absolute;
+    top: 90px;
+    display: flex;
+    flex-direction: row;
+}
+
+#quiz #question h2 {
+    font-family: "Helvetica";
+    font-size: 27px;
+}
+
+#quiz #question h2:first-child {
+    margin: 0 10px 0 5px;
+}
+
+/*Quiz Options*/
+#quiz #optionList {
+    height: 400px;
+    width;
+    100%;
+    position: absolute;
+    top: 160px;
+}
+
+#quiz #optionList h4 {
+    
+    height: 50px;
+    width: 535px;
+    font-family: "Helvetica";
+    background: #689f38;
+    line-height: 50px;
+    margin: 5px 0;
+    border-radius: 7px;
+    padding: 0 20px;
+    font-size: 20px;
+    color: #000000;
+    overflow: hidden;
+    border: 1px solid #b0c4d8;
+    cursor: pointer;
+    text-align: center;
+}
+
+#quiz #optionList h4:hover {
+    background: #558b2f;
+}
+
+#quiz #optionList .active {
+    background: #006400;
+}
+
+#quiz #optionList .disabled {
+    pointer-events: none;
+}
+/*End of quiz section*/
+
+
+/*Answers and results Section*/
+#quiz #answersSection {
+    height: 60px;
+    width: 580px;
+    background: #b2ff59;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 0;
+
+}
+
+#quiz #answersSection h3 {
+    margin: 0px 30px;
+    display: none;
+    height: 700px;
+    width: 70px;
+    position: absolute;
+    width
+
+}
+
+#quiz #answersSection h3:last-child {
+    height: 40px;
+    width: 4000px;
+    display: grid;
+    font-family: "Helvetica";
+    place-items: center;
+    background: #698f38;
+    position: relative;
+    right: 0;
+    color: #000000;
+    border: 1px solid #b0c4d8;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+#quiz #answersSection h3:hover {
+    background: #558b2f;
+}
+
+#quiz #answersSection h3:first-child:hover {
+    background: #558b2f;
+}
+
+/*Result Section*/
+#container #result {
+    height: 500px;
+    width: 450px;
+    padding: 20px;
+    background: #b2ff59;
+    border-radius: 25px;
+    border: 1px solid #b0c4d8;
+    overflow: hidden;
+    position: relative;
+        display: none;
+}
+
+#container #result i {
+    font-size: 180px;
+    color: #b2ff59;
+    position: absolute;
+    top: 30px;
+    left: 120px;
+}
+
+#container #result h6 {
+    height: 60px;
+    width: 100%;
+    font-size: 20px;
+    position: absolute;
+    top: 250px;
+}
+
+#container #result #points {
+    position: absolute;
+    font-size: 40px;
+        text-align: center;
+    top: 50px;
+    left: 0px;
+
+}
+
+
+#container #result button {
+    height: 60px;
+    width: 260px;
+    border: none;
+    outline: none;
+    background: #698f38;
+    color: #000000;
+    position: absolute;
+    left: 105px;
+    top: 335px;
+    border: 1px solid #b0c4d8;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#container #result button:last-child {
+    top: 405px;
+}
+
+#container #result button:hover {
+    background: #558b2f;
+}
+
+#container #quiz_header #shader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,165,0,0.2);
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+
