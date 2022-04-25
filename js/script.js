@@ -4,8 +4,8 @@
 let start = document.querySelector("#start");
 
 //guide Section
-let guide = document.querySelector("#guide");
-let exit = document.querySelector("#exit");
+let quizGuide = document.querySelector("#quizGuide");
+let quizExit = document.querySelector("#quizExit");
 let continueBtn = document.querySelector("#continue");
 
 //Quiz Section
@@ -13,7 +13,7 @@ let quiz = document.querySelector("#quiz");
 let time = document.querySelector("#time");
 
 //question Section
-let questionNo = document.querySelector("#questionNo");
+let questionNumber = document.querySelector("#questionNumber");
 let questionText = document.querySelector("#questionText");
 
 //Multiple Choices Of Questions
@@ -27,13 +27,13 @@ let total_correct = document.querySelector("#total_correct");
 let next_question = document.querySelector("#next_question");
 
 //Result Section
-let result = document.querySelector("#result");
-let points = document.querySelector("#points");
+let finalResult = document.querySelector("#finalResult");
+let numberOfPoints = document.querySelector("#numberOfPoints");
 let quit = document.querySelector("#quit");
 let startAgain = document.querySelector("#startAgain");
 
 //Get All 'H4' From Quiz Section (multipleChoice)
-let choice_que = document.querySelectorAll(".choice_que");
+let choice_question = document.querySelectorAll(".choice_question");
 
 
 let index = 0;
@@ -44,7 +44,7 @@ let interval = 0;
 let correct = 0;
 
 //store Answer Value
-let UserAns = undefined;
+let userAns = undefined;
 
 //End of Setting Variables and Keywords etc--------------------------
 
@@ -52,13 +52,13 @@ let UserAns = undefined;
 //what happen when 'Start' Button Will Click
 start.addEventListener("click", () => {
     start.style.display = "none";
-    guide.style.display = "block";
+    quizGuide.style.display = "block";
 });
 
 //what happen when 'Exit' Button Will Click
-exit.addEventListener("click", () => {
+quizExit.addEventListener("click", () => {
     start.style.display = "block";
-    guide.style.display = "none";
+    quizGuide.style.display = "none";
 });
 
 
@@ -84,7 +84,7 @@ let countDown = () => {
 //Code to keep the question counter running along with the timer, again has usage from my referenced third party sites.
 
 let loadData = () => {
-    questionNo.innerText = index + 1 + ". ";
+    questionNumber.innerText = index + 1 + ". ";
     questionText.innerText = multipleChoice[index].question;
     option1.innerText = multipleChoice[index].choice1;
     option2.innerText = multipleChoice[index].choice2;
@@ -103,14 +103,14 @@ loadData();
 
 continueBtn.addEventListener("click", () => {
     quiz.style.display = "block";
-    guide.style.display = "none";
+    quizGuide.style.display = "none";
 
     interval = setInterval(countDown, 1000);
     loadData();
 
     //    remove All Active Classes When Continue Button Will Click
 
-    choice_que.forEach(removeActive => {
+    choice_question.forEach(removeActive => {
         removeActive.classList.remove("active");
     })
 
@@ -118,7 +118,7 @@ continueBtn.addEventListener("click", () => {
 });
 
 //The main counter section for the quiz to calculate how many a user got right.  Again heavily inspired by the referenced sites. 
-choice_que.forEach((choices, choiceNo) => {
+choice_question.forEach((choices, choiceNo) => {
     choices.addEventListener("click", () => {
         choices.classList.add("active");
         //check answer
@@ -132,7 +132,7 @@ choice_que.forEach((choices, choiceNo) => {
 
         //disable All Options When User Select An Option
         for (i = 0; i <= 3; i++) {
-            choice_que[i].classList.add("disabled");
+            choice_question[i].classList.add("disabled");
         }
     })
 });
@@ -142,7 +142,7 @@ next_question.addEventListener("click", () => {
     //    if index is less then multipleChoice.length
     if (index !== multipleChoice.length - 1) {
         index++;
-        choice_que.forEach(removeActive => {
+        choice_question.forEach(removeActive => {
             removeActive.classList.remove("active");
         })
 
@@ -162,24 +162,24 @@ next_question.addEventListener("click", () => {
         clearInterval(interval);
         //Takes the values that were "correct" and compares it to the length of the total multiple choice questions, in this case 10
         quiz.style.display = "none";
-        points.innerHTML = `You Got ${correct} Out Of ${multipleChoice.length}`;
-        result.style.display = "block";
+        numberOfPoints.innerHTML = `You Got ${correct} Out Of ${multipleChoice.length}`;
+        finalResult.style.display = "block";
     }
     for (i = 0; i <= 3; i++) {
-        choice_que[i].classList.remove("disabled");
+        choice_question[i].classList.remove("disabled");
     }
 })
 
 //what happen when 'Quit' Button Will Click
 quit.addEventListener("click", () => {
     start.style.display = "block";
-    result.style.display = "none";
+    finalResult.style.display = "none";
 });
 
 //Start Again When 'Start Again' Button Will Clicked
 startAgain.addEventListener("click", () => {
-    guide.style.display = "block";
-    result.style.display = "none";
+    quizGuide.style.display = "block";
+    finalResult.style.display = "none";
 });
 
 //On Click Functions for the shader button

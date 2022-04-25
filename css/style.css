@@ -60,7 +60,7 @@ body {
 /*End of start section*/
 
 /*Guide Section, all CSS for the guide/tutorial part of the quiz*/
-#guide,
+#quizGuide,
 #quiz {
     height: auto;
     width: 580px;
@@ -71,13 +71,13 @@ body {
     border-radius: 25px
 }
 
-#guide h2 {
+#quizGuide h2 {
     font-size: 60px;
     color: #000000;
     text-align: center;
 }
 
-#guide h4 {
+#quizGuide h4 {
     height: 50px;
     width: 100%;
     display: flex;
@@ -85,14 +85,14 @@ body {
     font-size: 20px;
 }
 
-#guide #button {
+#quizGuide #button {
     height: 50px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-#guide #button button {
+#quizGuide #button button {
     height: 50px;
     width: 1000px;
     font-family: "Helvetica";
@@ -107,11 +107,11 @@ body {
     border-radius: 25px;
 }
 
-#guide #button button:last-child {
+#quizGuide #button button:last-child {
     margin: 10px 0;
 }
 
-#guide #button button:hover {
+#quizGuide #button button:hover {
     background: #558b2f;
 }
 /*End of Guide Section*/
@@ -323,7 +323,7 @@ body {
 }
 
 /*Result Section*/
-#container #result {
+#container #finalResult {
     height: 500px;
     width: 450px;
     padding: 20px;
@@ -335,7 +335,7 @@ body {
         display: none;
 }
 
-#container #result i {
+#container #finalResult i {
     font-size: 180px;
     color: #b2ff59;
     position: absolute;
@@ -343,7 +343,7 @@ body {
     left: 120px;
 }
 
-#container #result h6 {
+#container #finalResult h6 {
     height: 60px;
     width: 100%;
     font-size: 20px;
@@ -351,7 +351,7 @@ body {
     top: 250px;
 }
 
-#container #result #points {
+#container #finalResult #numberOfPoints {
     position: absolute;
     font-size: 40px;
         text-align: center;
@@ -361,7 +361,7 @@ body {
 }
 
 
-#container #result button {
+#container #finalResult button {
     height: 60px;
     width: 260px;
     border: none;
@@ -377,11 +377,11 @@ body {
     cursor: pointer;
 }
 
-#container #result button:last-child {
+#container #finalResult button:last-child {
     top: 405px;
 }
 
-#container #result button:hover {
+#container #finalResult button:hover {
     background: #558b2f;
 }
 

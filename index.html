@@ -19,7 +19,7 @@
 
         <!--    Guide Section    -->
         <!--    Guide points being made-->
-        <div id="guide">
+        <div id="quizGuide">
             <h2>Quiz Guide</h2>
             <h4>Rule 1: You get 1 point per correct answer, and can only select an answer once.</h4>
             <h4>Rule 2: You only have 20 seconds per question, so think fast!</h4>
@@ -27,7 +27,7 @@
             <h4>Rule 4: If you have trouble seeing the questions, try our shader feature!</h4>
             <!--    Exit and Continue Buttons    -->
             <div id="button">
-                <button id="exit">Exit</button>
+                <button id="quizExit">Exit</button>
                 <button id="continue">Continue</button>
             </div>
         </div>
@@ -54,17 +54,17 @@
             <!--     Quiz Questions  -->
 
             <div id="question">
-                <h2 id="questionNo"></h2>
+                <h2 id="questionNumber"></h2>
                 <h2 id="questionText"></h2>
             </div>
 
             <!--       Quiz Choices   -->
-            <!--    Currently limited to 4 options    -->
+            <!--    Currently limited to 4 op    -->
             <div id="optionList">
-                <h4 class="choice_que" id="option1"> </h4>
-                <h4 class="choice_que" id="option2"></h4>
-                <h4 class="choice_que" id="option3"></h4>
-                <h4 class="choice_que" id="option4"></h4>
+                <h4 class="choice_question" id="option1"> </h4>
+                <h4 class="choice_question" id="option2"></h4>
+                <h4 class="choice_question" id="option3"></h4>
+                <h4 class="choice_question" id="option4"></h4>
             </div>
 
             <!--  Answers Section-->
@@ -76,11 +76,11 @@
                 <h3 id="next_question">Next</h3>
             </div>
         </div>
-        <!--   Result Section  -->
+        <!--   finalResult Section  -->
         <!--    End of quiz, short congratulations message as well as final score    -->
-        <div id="result">
+        <div id="finalResult">
             <h6>Congratulations! I really hope you enjoyed! If you did, please feel free to message me some feedback on my github page!  If you would like to try again, simply refresh the page! </h6>
-            <h6 id="points">You Got 4 Out Of 10</h6>
+            <h6 id="numberOfPoints">You Got 4 Out Of 10</h6>
             <!--<button id="startAgain">Start Again</button>-->
         </div>
     </div>
