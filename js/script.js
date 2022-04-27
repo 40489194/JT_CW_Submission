@@ -1,7 +1,7 @@
 //NOTE: TO APPROXIMATELY LINE 50 (TAKING INTO ACCOUNT IT MAY LOOK DIFFERENT IN DIFFERENT EDITORS), THIS IS ALL JUST DEFINING MAY VARIABLES INTO SUITABLE TERMS, AKA NOT VERY EXCITING, AGAIN WAS HEAVILY INSPIRED BY ONLINE QUIZZES THAT I REFERENCED AS I THINK IT GIVES THE CODE A CLEAN LOOK, AND I WANTED MORE TIME TO CONCENTRATE ON THE PARTS A USER WOULD SEE
 
 //Start Section
-let start = document.querySelector("#start");
+let startQuiz = document.querySelector("#startQuiz");
 
 //guide Section
 let quizGuide = document.querySelector("#quizGuide");
@@ -23,25 +23,25 @@ let option3 = document.querySelector("#option3");
 let option4 = document.querySelector("#option4");
 
 //correct and next Button
-let total_correct = document.querySelector("#total_correct");
-let next_question = document.querySelector("#next_question");
+let totalCorrect = document.querySelector("#totalCorrect");
+let nextQuestion = document.querySelector("#nextQuestion");
 
 //Result Section
-let finalResult = document.querySelector("#finalResult");
+let finalUserResult = document.querySelector("#finalUserResult");
 let numberOfPoints = document.querySelector("#numberOfPoints");
-let quit = document.querySelector("#quit");
+let userQuit = document.querySelector("#userQuit");
 let startAgain = document.querySelector("#startAgain");
 
 //Get All 'H4' From Quiz Section (multipleChoice)
-let choice_question = document.querySelectorAll(".choice_question");
+let choiceQuestion = document.querySelectorAll(".choiceQuestion");
 
-
+//Setting other variables
 let index = 0;
 let timer = 0;
-let interval = 0;
+let timeInterval = 0;
 
 //total points
-let correct = 0;
+let correctChoice = 0;
 
 //store Answer Value
 let userAns = undefined;
@@ -49,40 +49,30 @@ let userAns = undefined;
 //End of Setting Variables and Keywords etc--------------------------
 
 
+
 //what happen when 'Start' Button Will Click
-start.addEventListener("click", () => {
-    start.style.display = "none";
+startQuiz.addEventListener("click", () => {
+    startQuiz.style.display = "none";
     quizGuide.style.display = "block";
 });
 
 //what happen when 'Exit' Button Will Click
 quizExit.addEventListener("click", () => {
-    start.style.display = "block";
+    startQuiz.style.display = "block";
     quizGuide.style.display = "none";
 });
 
-
-//TIMER CODE
-//Creating Timer For Quiz Timer Section
-
-//If twenty seconds pass, the quiz will "click" over onto the next question, otherwise the timer will keep going until it reaches that 20 figure
-//NOTE: This is a mix of the referenced libraries, online quizzes and my own knowledge. The trouble was that I could not figure out how to make it run per question, so that is where the usage of third party code comes in, as well as the idea for the if statement for 20 seconds, I took this as its a nice way to make the timer without being too overcomplicated. 
-
-
-let countDown = () => {
-    if (timer === 20) {
-        clearInterval(interval);
-        next_question.click();
-    } else {
-        timer++;
-        time.innerText = timer;
-    }
+//On Click Functions for the shader button
+function on() {
+  document.getElementById("shader").style.display = "block";
 }
 
-//setInterval(countDown,1000);
+function off() {
+  document.getElementById("shader").style.display = "none";
+}
+
 
 //Code to keep the question counter running along with the timer, again has usage from my referenced third party sites.
-
 let loadData = () => {
     questionNumber.innerText = index + 1 + ". ";
     questionText.innerText = multipleChoice[index].question;
@@ -97,6 +87,46 @@ let loadData = () => {
 
 loadData();
 
+//TIMER CODE
+//Creating Timer For Quiz Timer Section
+
+//If twenty seconds pass, the quiz will "click" over onto the next question, otherwise the timer will keep going until it reaches that 20 figure
+//NOTE: This is a mix of the referenced libraries, online quizzes and my own knowledge. The trouble was that I could not figure out how to make it run per question, so that is where the usage of third party code comes in, as well as the idea for the if statement for 20 seconds, I took this as its a nice way to make the timer without being too overcomplicated. 
+
+
+let timerCountDown = () => {
+    if (timer === 20) {
+        clearInterval(timeInterval);
+        nextQuestion.click();
+    } else {
+        timer++;
+        time.innerText = timer;
+    }
+}
+
+//setInterval(timerCountDown,1000);
+
+
+//The main counter section for the quiz to calculate how many a user got right.  Again heavily inspired by the referenced sites. 
+choiceQuestion.forEach((userChoices, choiceNo) => {
+    userChoices.addEventListener("click", () => {
+        userChoices.classList.add("active");
+        //check answer
+        if (choiceNo === multipleChoice[index].answer) {
+            correctChoice++;
+        } else {
+            correctChoice += 0;
+        }
+        //stop Counter
+        clearInterval(timeInterval);
+
+        //disable All Options When User Select An Option
+        for (i = 0; i <= 3; i++) {
+            choiceQuestion[i].classList.add("disabled");
+        }
+    })
+});
+
 //what happen when 'Continue' Button Will Click
 //This piece is very important, as when continue is clicked not only does the quiz start, but the timer must as well.
 //NOTE: I found this to be the most difficult part of the site by far, so again a lot of the code is from my referenced sites, again was done so I could focus on creating the other features.
@@ -105,44 +135,25 @@ continueBtn.addEventListener("click", () => {
     quiz.style.display = "block";
     quizGuide.style.display = "none";
 
-    interval = setInterval(countDown, 1000);
+    timeInterval = setInterval(timerCountDown, 1000);
     loadData();
 
     //    remove All Active Classes When Continue Button Will Click
 
-    choice_question.forEach(removeActive => {
+    choiceQuestion.forEach(removeActive => {
         removeActive.classList.remove("active");
     })
 
-    total_correct.innerHTML = `${correct = 0} Out Of ${multipleChoice.length} Questions`;
+    totalCorrect.innerHTML = `${correctChoice = 0} Out Of ${multipleChoice.length} Questions`;
 });
 
-//The main counter section for the quiz to calculate how many a user got right.  Again heavily inspired by the referenced sites. 
-choice_question.forEach((choices, choiceNo) => {
-    choices.addEventListener("click", () => {
-        choices.classList.add("active");
-        //check answer
-        if (choiceNo === multipleChoice[index].answer) {
-            correct++;
-        } else {
-            correct += 0;
-        }
-        //stop Counter
-        clearInterval(interval);
-
-        //disable All Options When User Select An Option
-        for (i = 0; i <= 3; i++) {
-            choice_question[i].classList.add("disabled");
-        }
-    })
-});
 
 //what happen when 'Next' Button Will Click.  Again heavily inspired by the referenced sites in order to save time and work on different features.
-next_question.addEventListener("click", () => {
+nextQuestion.addEventListener("click", () => {
     //    if index is less then multipleChoice.length
     if (index !== multipleChoice.length - 1) {
         index++;
-        choice_question.forEach(removeActive => {
+        choiceQuestion.forEach(removeActive => {
             removeActive.classList.remove("active");
         })
 
@@ -150,45 +161,39 @@ next_question.addEventListener("click", () => {
         loadData();
 
         //result
-        total_correct.style.display = "block";
-        total_correct.innerHTML = `${correct} Out Of ${multipleChoice.length} Questions`;
-        clearInterval(interval);
-        interval = setInterval(countDown, 1000);
+        totalCorrect.style.display = "block";
+        totalCorrect.innerHTML = `${correctChoice} Out Of ${multipleChoice.length} Questions`;
+        clearInterval(timeInterval);
+        timeInterval = setInterval(timerCountDown, 1000);
     } else {
         index = 0;
 
 
         //when Quiz Question Complete Display Result Section
-        clearInterval(interval);
+        clearInterval(timeInterval);
         //Takes the values that were "correct" and compares it to the length of the total multiple choice questions, in this case 10
         quiz.style.display = "none";
-        numberOfPoints.innerHTML = `You Got ${correct} Out Of ${multipleChoice.length}`;
-        finalResult.style.display = "block";
+        numberOfPoints.innerHTML = `You Got ${correctChoice} Out Of ${multipleChoice.length}`;
+        finalUserResult.style.display = "block";
     }
     for (i = 0; i <= 3; i++) {
-        choice_question[i].classList.remove("disabled");
+        choiceQuestion[i].classList.remove("disabled");
     }
 })
 
 //what happen when 'Quit' Button Will Click
-quit.addEventListener("click", () => {
-    start.style.display = "block";
-    finalResult.style.display = "none";
+userQuit.addEventListener("click", () => {
+    startQuiz.style.display = "block";
+    finalUserResult.style.display = "none";
 });
 
 //Start Again When 'Start Again' Button Will Clicked
 startAgain.addEventListener("click", () => {
     quizGuide.style.display = "block";
-    finalResult.style.display = "none";
+    finalUserResult.style.display = "none";
 });
 
-//On Click Functions for the shader button
-function on() {
-  document.getElementById("shader").style.display = "block";
-}
 
-function off() {
-  document.getElementById("shader").style.display = "none";
-}
+
 
 //END OF JS-------------------------------------

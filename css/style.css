@@ -25,7 +25,7 @@ body {
 /*End of setup CSS*/
 
 /*Start Section, all the CSS needed for the first page*/
-#start {
+#startQuiz {
     height: 70px;
     width: 250px;
         font-family: "Helvetica";
@@ -43,7 +43,7 @@ body {
     bottom: 130px;
 }
 
-#start h1{
+#startQuiz h1{
     font-size: 45px;
     position: absolute;
     height: 350px;
@@ -53,7 +53,7 @@ body {
 }
 
 
-#start:hover {
+#startQuiz:hover {
     background: #558b2f;
     color: #000000;
 }
@@ -323,7 +323,7 @@ body {
 }
 
 /*Result Section*/
-#container #finalResult {
+#container #finalUserResult {
     height: 500px;
     width: 450px;
     padding: 20px;
@@ -335,7 +335,7 @@ body {
         display: none;
 }
 
-#container #finalResult i {
+#container #finalUserResult i {
     font-size: 180px;
     color: #b2ff59;
     position: absolute;
@@ -343,7 +343,7 @@ body {
     left: 120px;
 }
 
-#container #finalResult h6 {
+#container #finalUserResult h6 {
     height: 60px;
     width: 100%;
     font-size: 20px;
@@ -351,7 +351,7 @@ body {
     top: 250px;
 }
 
-#container #finalResult #numberOfPoints {
+#container #finalUserResult #numberOfPoints {
     position: absolute;
     font-size: 40px;
         text-align: center;
@@ -361,7 +361,7 @@ body {
 }
 
 
-#container #finalResult button {
+#container #finalUserResult button {
     height: 60px;
     width: 260px;
     border: none;
@@ -377,11 +377,11 @@ body {
     cursor: pointer;
 }
 
-#container #finalResult button:last-child {
+#container #finalUserResult button:last-child {
     top: 405px;
 }
 
-#container #finalResult button:hover {
+#container #finalUserResult button:hover {
     background: #558b2f;
 }
 
